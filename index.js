@@ -5,7 +5,12 @@ const User = require('./schema/userSchema');
 const ProductSchema = require('./schema/productsSchema');
 const cors = require('cors')
 const jwt = require('jsonwebtoken');
-const JWTSECRETKEY = "secret"
+const JWTSECRETKEY = "secret";
+const dotenv = require('dotenv');
+
+
+dotenv.config({ path: './config.env' })
+const PORT = process.env.PORT
 
 
 
@@ -184,4 +189,6 @@ app.put('/update/:id', async (req, resp) => {
 
 
 
-app.listen(4000)
+app.listen(PORT, () => {
+   console.log('server started on port ' + PORT)
+})

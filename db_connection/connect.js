@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const config = require('../config/dbconfig')
 // mongoose.connect('mongodb://localhost:27017/ecomm');
-const DB = 'mongodb://vikramp:9224265644v@ac-mnajaxr-shard-00-00.kfqpl32.mongodb.net:27017,ac-mnajaxr-shard-00-01.kfqpl32.mongodb.net:27017,ac-mnajaxr-shard-00-02.kfqpl32.mongodb.net:27017/?ssl=true&replicaSet=atlas-x87sfa-shard-0&authSource=admin&retryWrites=true&w=majority'
+
+
+dotenv.config({ path: './config.env' })
+const DB = process.env.DATABASE
 
 
 mongoose.set('strictQuery', true);
